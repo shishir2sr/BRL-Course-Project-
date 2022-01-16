@@ -39,7 +39,7 @@ var kTitle2Style = TextStyle(
   fontFamily: Platform.isIOS ? 'SF Pro Text' : null,
   decoration: TextDecoration.none,
 );
-var kHeadlineLabelStyle = TextStyle(
+var kHeadlineLabelStyle = const TextStyle(
   fontSize: 17.0,
   fontWeight: FontWeight.w800,
   color: kPrimaryLabelColor,
@@ -85,10 +85,11 @@ var kSearchTextStyle = TextStyle(
 );
 var kCardSubtitleStyle = TextStyle(
   fontFamily: Platform.isIOS ? 'SF Pro Text' : null,
-  color: Color(0xE6FFFFFF),
+  color: const Color(0xE6FFFFFF),
   fontSize: 13.0,
   decoration: TextDecoration.none,
 );
+
 var kCaptionLabelStyle = TextStyle(
   fontSize: 12.0,
   color: kSecondaryLabelColor,

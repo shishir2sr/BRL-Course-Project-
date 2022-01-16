@@ -1,3 +1,4 @@
+import 'package:final_project/model/sidebar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,44 +12,49 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Row(
-          children: <Widget>[
-            // ignore: avoid_unnecessary_containers
-            Container(
-              width: 42,
-              height: 42,
-              padding: const EdgeInsets.all(10),
-              child: const Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.topRight,
-                      colors: [
-                        Color(0xFF00AEFF),
-                        Color(0xFF0076FF),
-                      ])),
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Center(
-              child: Container(
-                child: const Text(
-                  "Home",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800,
-                      color: Color(0xFF242629)),
-                ),
-              ),
-            ),
-          ],
+        body: SideBarRow(
+          item: sidebarItem[2],
         ),
       ),
+    );
+  }
+}
+
+class SideBarRow extends StatelessWidget {
+  final SidebarItem item;
+
+  SideBarRow({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        // ignore: avoid_unnecessary_containers
+        Container(
+          width: 42,
+          height: 42,
+          padding: const EdgeInsets.all(10),
+          child: item.icon,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              gradient: item.background),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Center(
+          child: Container(
+            child: Text(
+              item.title.toString(),
+              style: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF242629),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
