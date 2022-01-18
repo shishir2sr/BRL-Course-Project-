@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class SideBarRow extends StatelessWidget {
   final SidebarItem item;
 
-  SideBarRow({required this.item});
+  const SideBarRow({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,7 @@ class SideBarRow extends StatelessWidget {
           width: 12,
         ),
         Center(
-          child: Container(
-            child: Text(item.title.toString(), style: kCalloutLabelStyle),
-          ),
+          child: Text(item.title.toString(), style: kCalloutLabelStyle),
         ),
       ],
     );
